@@ -4367,7 +4367,8 @@ function checkIncomingModuleAPI() {
 var ASM_CONSTS = {
   69720: () => { document.getElementById('output').value = ''; },  
  69766: () => { document.getElementById('output').value = ''; },  
- 69812: () => { document.getElementById('output').value = ''; }
+ 69812: () => { document.getElementById('output').value = ''; },  
+ 69858: () => { document.getElementById('output').value = ''; }
 };
 
 // Imports from the Wasm binary.

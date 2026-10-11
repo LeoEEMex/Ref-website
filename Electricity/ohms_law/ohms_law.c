@@ -108,6 +108,11 @@ if(V == 0) {
 
 int restart() {
 
+
+EM_ASM(
+        document.getElementById('output').value = '';
+    );
+
     V = 0;
     I = 0;
     R = 0;
@@ -117,6 +122,7 @@ printf("Enter Voltage (V): \n");
 printf("Enter Current (A): \n");
 
 printf("Enter Resistance (Ω): \n");
+
 
 }
 
