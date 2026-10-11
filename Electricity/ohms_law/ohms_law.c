@@ -16,6 +16,17 @@ EMSCRIPTEN_KEEPALIVE
 
 
 int start() {
+
+EM_ASM(
+        document.getElementById('output').value = '';
+    );
+
+V = 0;
+I = 0;
+R = 0;
+
+
+
 printf("Welcome to the Ohm's Law Calculator!\n");
 printf("Remember that to find the unknown quantity, you need write 0 on the popup.\n");
 printf("Also, make sure only numbers are entered (no units or SI units).\n");
@@ -106,25 +117,8 @@ if(V == 0) {
 
 }
 
-int restart() {
 
 
-EM_ASM(
-        document.getElementById('output').value = '';
-    );
-
-    V = 0;
-    I = 0;
-    R = 0;
-
-printf("Enter Voltage (V): \n");
-
-printf("Enter Current (A): \n");
-
-printf("Enter Resistance (Ω): \n");
-
-
-}
 
 
 
