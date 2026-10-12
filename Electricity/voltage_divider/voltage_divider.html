@@ -27,22 +27,26 @@
     <h3>Fundamentals</h3>
     <body>
             <p>
-                Ohm's Law states that in a perfect circuit, the electric curent between tro points is directly proportional to the Voltage (or potential difference) across the two points. Introducing the constant of proportionality, the resistance, one gets V=IR.
-                On fewer words, Voltage = Current * Resistance. This means that if you increase the voltage, the current will also increase, and if you increase the resistance, the current will decrease.
-                https://en.wikipedia.org/wiki/Ohm%27s_law   (information source, Wikipedia)
+                A voltage divider is a passive linear circuit (series) that outputs a fraciton of the total voltage (voltage from source).             
+                A voltage divider referenced to ground is created by connecting two electrical impedances in series.           
+                <br>                            
+                https://en.wikipedia.org/wiki/Voltage_divider   (information source, Wikipedia)    
+                </br>          
             </p>
         <h3>Uses</h3>
         <p>
-            The formula is used in many applications, such as calculating the current in a circuit, determining the resistance of a material, and finding the voltage. It is also used in the design of electrical circuits and in the analysis of electrical systems.
-        </p>
+                Resistor Voltage dividers are commonly used to create reference voltages, or to reduce the voltage. Anotehr use is to be used as signal attenuators at low alternating current frequencies.            </p>
 
     <h3>Formulas Rearrangements</h3>
         <p>
             The formula can be rearranged to find the current or the resistance. The rearrangements are as follows:
             <ul>
-                <li>V = I * R</li>
-                <li>I = V / R</li>
-                <li>R = V / I</li>
+                <li>V<sub>out</sub> = V<sub>source</sub>  *  (R<sub>x</sub> / R<sub>Total</sub>)</li>
+                <li>V<sub>source</sub> = V<sub>out</sub>  *  (R<sub>Total</sub> / R<sub>x</sub>)</li>
+                <li>R<sub>x</sub> = (V<sub>out</sub>  *  R<sub>Total</sub>) / V<sub>source</sub></li>
+                <li>R<sub>Total</sub> = (V<sub>source</sub>  *  R<sub>x</sub>) / V<sub>out</sub></li>
+
+
                 <img src= "voltagediv.png" alt="Voltage divider visual example" width="400">
                 <li>https://electronicsarea.com/voltage-divider/  (image source)</li>
             </ul>
@@ -51,8 +55,9 @@
         
         <h3>Calculator</h3>
         <p>
-            This is a calculator that can be used to calculate the voltage, current, or resistance in a circuit. It is based on Ohm's Law and can be used to find the unknown value when the other two values are known.
-            These are the instructions on how to use the calculator:
+            This is a calculator that can be used to calculate the V<sub>out</sub>, V<sub>source</sub>, R<sub>x</sub>, and R<sub>Total</sub> in a circuit.             
+            It is based on the voltage divider formula and can be used to find the unknown value when the other values are known.                
+            These are the instructions on how to use the calculator:          
             <ul>
                 <li>Use numbers only, do not enter any letters or special characters (this inclused SI prefixes).</li>
                 <li>For your unknown value, enter 0.</li>
