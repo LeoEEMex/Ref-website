@@ -20,4 +20,5 @@ Current working formulas and Calculatos:
 1. Ohm's Law.   
 2. Voltage Divider.
 3. Current Divider.
+4. Resistor Addition in series.
  
