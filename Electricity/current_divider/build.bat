@@ -5,5 +5,3 @@ emcc current_divider.c -o current_divider.js -s NO_EXIT_RUNTIME=1 -s EXPORTED_RU
 echo.
 echo Compilation complete!
 pause
-''''''''''''''''''''''''''''''''''''''''
- 

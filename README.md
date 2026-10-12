@@ -18,4 +18,6 @@ So specially because right now the development of the web is too young I will do
 Current working formulas and Calculatos:     
      
 1. Ohm's Law.   
+2. Voltage Divider.
+3. Current Divider (ongoing).
  

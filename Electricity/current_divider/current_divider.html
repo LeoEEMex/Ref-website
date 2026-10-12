@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Divider</title>
+<style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            color: #f9f7f7;
+            background-color: #000000;
+        }
+        h2{
+            margin-top: -15px;
+            margin-bottom: 0px;
+        }
+
+
+        
+        </style>
+</head>
+
+
+<main>
+    <h1>Current Divider</h1>
+    <h3>Fundamentals</h3>
+    <body>
+            <p> 
+                A Current divider is a passive linear circuit (series) that outputs a fraciton of the total current (current from source).                           
+                If two or more impedances are in parallel, the current that enters the combination will be split between them in inverse proportion to their impedances (according to Ohm's law).            
+                It also follows that if the impedances have the same value, the current is split equally.                      
+                <br>                            
+                https://en.wikipedia.org/wiki/Current_divider   (information source, Wikipedia)    
+                </br>          
+            </p>
+        <h3>Uses</h3>
+        <p>
+                Current divider circuits are widely used to split current between multiple parallel components to meet the specific requirements of electrical elements.
+    <h3>Formulas Rearrangements</h3>
+        <p>
+            The formula can be rearranged to find the current or the resistance. The rearrangements are as follows:
+            <ul> 
+                <li>I<sub>x</sub> = (I<sub>source</sub>  *  R<sub>Total</sub>) / (R<sub>x</sub> * R<sub>Total</sub>)</li>
+                <li>I<sub>source</sub> = ((R<sub>x</sub>  +  R<sub>Total</sub>) * I<sub>x</sub>) / R<sub>Total</sub></li>
+                <li>R<sub>x</sub> = (R<sub>Total</sub>  *  (I<sub>source</sub> - I<sub>x</sub>)) / I<sub>x</sub></li>
+                <li>R<sub>Total</sub> = (R<sub>x</sub>  *  I<sub>x</sub>) / (I<sub>Total</sub> - I<sub>x</sub>)</li>
+
+
+                <img src= "currentdiv.png" alt="Current divider visual example" width="400 background img>
+                <li>https://en.wikipedia.org/wiki/Current_divider  (image source)</li>
+            </ul>
+            
+        </p>
+        
+        <h3>Calculator</h3>
+        <p>
+            This is a calculator that can be used to calculate the V<sub>out</sub>, V<sub>source</sub>, R<sub>x</sub>, and R<sub>Total</sub> in a circuit.             
+            It is based on the voltage divider formula and can be used to find the unknown value when the other values are known.                
+            These are the instructions on how to use the calculator:          
+            <ul>
+                <li>To start the calculator, press "Start"</li>
+                <li>Use numbers only, do not enter any letters or special characters (this inclused SI prefixes).</li>
+                <li>For your unknown value, enter 0.</li>
+                <li>Click the "Start" button to begin.</li>
+                <li>Click on the buttons (Current at x resitor, current at the source, or total resistance) to assign each a value.</li>
+                <li>Then click on the "Calculate" button and the result will be calculated and displayed.</li>
+                <li>To reset the calculator, click the "Reset" button.</li>
+            </ul>
+            Click <a href="current_divider_calculator.html">here</a> to go to the calculator.
+        </p>
+    </body>
+</main>
+                    

@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
-    <title>Voltage Divider Calculator</title>
+    <title>Current Divider Calculator</title>
     
     <style>
         body{
@@ -74,7 +74,7 @@
   </head>
   <body>
 
-    <h1>Voltage Divider</h1>
+    <h1>Current Divider</h1>
     <div class = "button-row">
 
     <button onclick="Module._start()">Start</button>
@@ -85,9 +85,9 @@
 
     <div class = "button-row">
 
-    <button onclick="Module._InsertVout()">Enter Voltage at V<sub>out</sub></button>
+    <button onclick="Module._InsertIx()">Enter Cuttent at I<sub>x</sub></button>
 
-    <button onclick="Module._InsertVsource()">Enter Voltage at the source</button>
+    <button onclick="Module._InsertIT()">Enter Current at the source</button>
 
     <button onclick="Module._InsertR_x()">Enter R<sub>x</sub></button>
 
@@ -120,7 +120,7 @@
     </script>
 
     <!-- Load the compiled C code you generated in Step 1 -->
-    <script async type="text/javascript" src="voltage_divider.js"></script>
+    <script async type="text/javascript" src="current_divider.js"></script>
     
   </body>
 </html>
