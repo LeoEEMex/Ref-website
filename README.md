@@ -21,4 +21,5 @@ Current working formulas and Calculatos:
 2. Voltage Divider.
 3. Current Divider.
 4. Resistor Addition in series.
+5. Resistor Addition in parallele.
  

@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
-    <title>Current Divider Calculator</title>
+    <title>Resistor Addition in Parallele calculator</title>
     
     <style>
         body{
@@ -74,7 +74,7 @@
   </head>
   <body>
 
-    <h1>Current Divider</h1>
+    <h1>Resistor Addition in Parallele calculator</h1>
     <div class = "button-row">
 
     <button onclick="Module._start()">Start</button>
@@ -85,7 +85,10 @@
 
     <div class = "button-row">
 
-    <button onclick="Module._InsertR()">Add another Resistance</button>
+    <button onclick="Module._InsertR()">Add First Resistance</button>
+    <button onclick="Module._InsertNewR()">Add another Resistance</button>
+
+
     </div>
     
     <!-- The Terminal Box -->
@@ -93,6 +96,8 @@
 
     <!-- The bare minimum JavaScript to connect C to the Textarea -->
     <script type='text/javascript'>
+      
+
       var outputElement = document.getElementById('output');
       if (outputElement) outputElement.value = ''; // clear on reload
 
@@ -108,7 +113,7 @@
     </script>
 
     <!-- Load the compiled C code you generated in Step 1 -->
-    <script async type="text/javascript" src="resistor_addition.js"></script>
+    <script async type="text/javascript" src="parallele_addition.js"></script>
     
   </body>
 </html>
