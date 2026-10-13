@@ -28,7 +28,7 @@ R_new = 0;
 
 
 
-printf("Welcome to the Parallele Resistor Calculator!\n");
+printf("Welcome to the Parallel Resistor Calculator!\n");
 printf("Remember that to find the unknown quantity, you need write 0 on the popup.\n");
 printf("Also, make sure only numbers are entered (no units or SI units).\n");
 printf("It doesnt matter which resistor is the first for most cases, just make sure to only click this button once or the calculation will be messed up.\n");
@@ -52,7 +52,7 @@ EM_ASM(
         document.getElementById('output').value = '';
     );
 
-printf("Welcome to the Parallele Resistor Calculator!\n");
+printf("Welcome to the Parallel Resistor Calculator!\n");
 printf("Remember that to find the unknown quantity, you need write 0 on the popup.\n");
 printf("Also, make sure only numbers are entered (no units or SI units).\n");
 printf("It doesnt matter which resistor is the first for most cases, just make sure to only click this button once or the calculation will be messed up.\n\n");
