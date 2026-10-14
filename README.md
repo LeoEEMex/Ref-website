@@ -1,4 +1,4 @@
-# Refrences Webcite
+# References Website
 
 So I am at college now taking physics, Calculus, intro to ECE, etc., etc.      
 And each class uses it's own formulas and each concept has it's own formulas blah blah blah...     
