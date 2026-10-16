@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <title>KCL</title>
+    
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            color: #f9f7f7;
+            background-color: #000000;
+        }
+        h2{
+            margin-top: -15px;
+            margin-bottom: 0px;
+        }
+
+        nav ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color:#000000;
+            display: flex;
+        }
+      h1 {
+        text-align: center;
+      }
+
+      /* The C Terminal Styling */
+      #output {
+        width: 100%;
+        max-width: 600px;
+        height: 250px;
+        margin: 20px auto;
+        display: block;
+        background-color: black;
+        color: white; 
+        font-family: 'Lucida Console', Monaco, monospace;
+        font-size: 16px;
+        border: 2px solid #333;
+        padding: 10px;
+        outline: none;
+        border-radius: 5px;
+      }
+
+
+      button{
+        height: 40px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #f6f4f4;
+        color: #000000;
+        border: none;
+        border-radius: 5px;
+      }
+
+
+      button:hover{
+        background-color: #45a049;
+      }
+
+
+      .button-row{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        gap: 30px; 
+        margin-bottom: 15px; 
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <h1>KCL</h1>
+    <div class = "button-row">
+
+    <button onclick="sendDataToC()">Start</button>
+
+    <button onclick="Module._KCL()">Reset</button>
+    </div>
+
+
+    <!-- Input boxes -->
+    <label>I<sub>1</sub>: <input type="number" id="I_1"></label>
+    <label>I<sub>2</sub>: <input type="number" id="I_2"></label>
+    <label>I<sub>3</sub>: <input type="number" id="I_3"></label>
+
+
+    <!-- A button to trigger the transfer -->
+    <button onclick="Module._Iadd()">DONE</button>
+
+
+    </div>
+    
+    <!-- The Terminal Box -->
+    <textarea id="output" rows="12" readonly></textarea>
+
+    <!-- The bare minimum JavaScript to connect C to the Textarea -->
+    <script type='text/javascript'>
+      var outputElement = document.getElementById('output');
+      if (outputElement) outputElement.value = ''; // clear on reload
+
+      var Module = {
+        print: function(...args) {
+          var text = args.join(' ');
+          if (outputElement) {
+            outputElement.value += text + "\n";
+            outputElement.scrollTop = outputElement.scrollHeight; // Auto-scroll to bottom
+          }
+        }
+      };
+
+      // 1. Your custom function goes HERE, completely outside the KCL.js tag
+      function sendDataToC() {
+        // Grab the values using the exact HTML IDs you created
+        let I1 = document.getElementById('I_1').value;
+        let I2 = document.getElementById('I_2').value;
+        let I3 = document.getElementById('I_3').value;
+
+        // Convert them to math numbers and send them to the _KCL function in C
+        Module._KCL(Number(I1), Number(I2), Number(I3));
+      }
+    </script>
+
+    <!-- 2. The external loader is now a dedicated, empty tag -->
+    <script async type="text/javascript" src="KCL.js"></script>
+
+    <li><a style="font-size: 24px;" href="/index.html">Index</a></li>
+    
+  </body>
+</html>
