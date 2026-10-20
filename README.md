@@ -22,4 +22,6 @@ Current working formulas and Calculatos:
 3. Current Divider.
 4. Resistor Addition in series.
 5. Resistor Addition in parallele.
+6. KCL.
+
  

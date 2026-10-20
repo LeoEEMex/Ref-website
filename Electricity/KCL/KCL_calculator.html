@@ -77,21 +77,21 @@
     <h1>KCL</h1>
     <div class = "button-row">
 
-    <button onclick="sendDataToC()">Start</button>
+    <button onclick="Module._KCL()">Start</button>
 
     <button onclick="Module._KCL()">Reset</button>
     </div>
 
 
-    <!-- Input boxes -->
-    <label>I<sub>1</sub>: <input type="number" id="I_1"></label>
-    <label>I<sub>2</sub>: <input type="number" id="I_2"></label>
-    <label>I<sub>3</sub>: <input type="number" id="I_3"></label>
+    <div class = "button-row">
 
+    <button onclick="Module._unknown()">Unknown location</button>
 
-    <!-- A button to trigger the transfer -->
-    <button onclick="Module._Iadd()">DONE</button>
+    <button onclick="Module._InsertIn()"> Add branch going in</button>
 
+    <button onclick="Module._InsertOut()"> Add branch coming out</button>
+
+    <button onclick="Module._calculate()">Calculate</button>
 
     </div>
     
@@ -113,19 +113,8 @@
         }
       };
 
-      // 1. Your custom function goes HERE, completely outside the KCL.js tag
-      function sendDataToC() {
-        // Grab the values using the exact HTML IDs you created
-        let I1 = document.getElementById('I_1').value;
-        let I2 = document.getElementById('I_2').value;
-        let I3 = document.getElementById('I_3').value;
-
-        // Convert them to math numbers and send them to the _KCL function in C
-        Module._KCL(Number(I1), Number(I2), Number(I3));
-      }
     </script>
 
-    <!-- 2. The external loader is now a dedicated, empty tag -->
     <script async type="text/javascript" src="KCL.js"></script>
 
     <li><a style="font-size: 24px;" href="/index.html">Index</a></li>

@@ -23,47 +23,49 @@
 
 
 <main>
-    <h1>Resistor Addition (addition parallel)</h1>
+    <h1>KCL</h1>
     <h3>Fundamentals</h3>
     <body>
             <p> 
-               When connecting components, in this case resistors in paralle, the total equivalent resistance is the reciprocal of the sum of the individual reciprocalsall individual resistors.                   
-               In this configuration, the resistors carry exactly the same voltage but generate different curreent drops based on their individual resistance values.
+                Kirchhoff's Current Law or KCL, states that the sum of all currents entering and exiting a node must equal zero.”
+                This law is used to describe how a charge enters and leaves a node on a circuit.
               
                 <br>                            
-                https://www.electronics-tutorials.ws/resistor/res_4.html   (information source, Wikipedia)    
+                https://www.allaboutcircuits.com/textbook/direct-current/chpt-6/kirchhoffs-current-law-kcl/   (information source)    
                 </br>          
             </p>
         <h3>Uses</h3>
         <p>
-                Resistors in paralell are useful to divide the current into different branshes with distinct values (while keeping the voltage the same).
+                The main use for this Law is to figure out how much current will flow into each branch/component. 
     <h3>Formulas Rearrangements</h3>
         <p>
-            The formula can be rearranged to find the total resistance or an individual resistance value. The rearrangements are as follows:
+            The formula can be rearranged to find the current comming into the node or coming out. The rearrangements are as follows:
             <ul> 
-                <li>R<sub>T</sub> = 1 / ( (1 / R<sub>1</sub>) + (1 / R<sub>2</sub>) + (1/ R<sub>3</sub>) + ... + (1 / R<sub>n</sub>) )
+                <li>I<sub>in</sub> = I<sub>out</sub>
                 
-                <li>R<sub>1</sub> = 1 / ( (1 / R<sub>T</sub>) - (1 / R<sub>2</sub>) - (1 / R<sub>2</sub>) - ... - (1 / R<sub>n</sub>) ) </li>
+                <li>I<sub>in</sub> - I<sub>out</sub> = 0 </li>
+
+                <li> E.g. : I<sub>1</sub> - I<sub>2</sub> - I<sub>3</sub> = 0 </li>
 
 
-                <img src= "resitorsparallele.webp" alt="Resistor addition in parallele visual example" width="400 background img>
-                <li>https://www.shutterstock.com/image-vector/association-resistors-parallel-resistor-voltage-current-363861527  (image source)</li>
+
+                <img src= "KCL ex.webp" alt="KCL law visual example" width="400" background img>
+                <li>https://www.allaboutcircuits.com/textbook/direct-current/chpt-6/kirchhoffs-current-law-kcl/  (image source)</li>
             </ul>
             
         </p>
         
         <h3>Calculator</h3>
         <p>
-            This is a calculator that can be used to calculate the R<sub>total</sub> of resistors on a parallel circuit.             
-            It is based on the voltage divider formula and can be used to find the unknown value when the other values are known.                
+            This is a calculator that can be used to calculate the current entering or leaving a node.             
             These are the instructions on how to use the calculator:          
             <ul>
                 <li>To start the calculator, press "Start"</li>
                 <li>Use numbers only, do not enter any letters or special characters (this inclused SI prefixes).</li>
-                <li>For your unknown value, enter 0.</li>
+                <li>Remember that to find the unknown quantity, you need to let the calculator know at what side is the unknown at, if the unkown is coming into the node, write a 0, if it is coming out of the node, write a 1.</li>
                 <li>Click the "Start" button to begin.</li>
-                <li>Click on the button (Add first resitor) to add the first resistor value (It doesnt matter which one is the first resistor for most cases, just make sure to only click this button once or the calculation will be messed up).</li>
-                <li>Click on the button (Add new resitor) to add a new resistor value.</li>
+                <li>Click on the button (Add branch going in) to insert a branch coming into the node.</li>
+                <li>Click on the button (Add branch coming out) to insert a branch coming out of the node.</li>
                 <li>Then click on the "Calculate" button and the result will be calculated and displayed.</li>
                 <li>To reset the calculator, click the "Reset" button.</li>
             </ul>
