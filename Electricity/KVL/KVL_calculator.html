@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <title>KVL</title>
+    
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            color: #f9f7f7;
+            background-color: #000000;
+        }
+        h2{
+            margin-top: -15px;
+            margin-bottom: 0px;
+        }
+
+        nav ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color:#000000;
+            display: flex;
+        }
+      h1 {
+        text-align: center;
+      }
+
+      /* The C Terminal Styling */
+      #output {
+        width: 100%;
+        max-width: 600px;
+        height: 250px;
+        margin: 20px auto;
+        display: block;
+        background-color: black;
+        color: white; 
+        font-family: 'Lucida Console', Monaco, monospace;
+        font-size: 16px;
+        border: 2px solid #333;
+        padding: 10px;
+        outline: none;
+        border-radius: 5px;
+      }
+
+
+      button{
+        height: 40px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #f6f4f4;
+        color: #000000;
+        border: none;
+        border-radius: 5px;
+      }
+
+
+      button:hover{
+        background-color: #45a049;
+      }
+
+
+      .button-row{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        gap: 30px; 
+        margin-bottom: 15px; 
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <h1>KVL</h1>
+    <div class = "button-row">
+
+    <button onclick="Module._KVL()">Start</button>
+
+    <button onclick="Module._KVL()">Reset</button>
+    </div>
+
+
+    <div class = "button-row">
+
+    <button onclick="Module._Vs()">Insert Voltage at source</button>
+
+    <button onclick="Module._V_0()"> Add Voltage drop</button>
+
+    <button onclick="Module._calculate()">Calculate</button>
+
+    </div>
+    
+    <!-- The Terminal Box -->
+    <textarea id="output" rows="12" readonly></textarea>
+
+    <!-- The bare minimum JavaScript to connect C to the Textarea -->
+    <script type='text/javascript'>
+      var outputElement = document.getElementById('output');
+      if (outputElement) outputElement.value = ''; // clear on reload
+
+      var Module = {
+        print: function(...args) {
+          var text = args.join(' ');
+          if (outputElement) {
+            outputElement.value += text + "\n";
+            outputElement.scrollTop = outputElement.scrollHeight; // Auto-scroll to bottom
+          }
+        }
+      };
+
+    </script>
+
+    <script async type="text/javascript" src="KVL.js"></script>
+
+    <li><a style="font-size: 24px;" href="/index.html">Index</a></li>
+    
+  </body>
+</html>
