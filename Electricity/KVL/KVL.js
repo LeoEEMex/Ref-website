@@ -4365,7 +4365,7 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp('wasmBinary');
 }
 var ASM_CONSTS = {
-  70040: () => { document.getElementById('output').value = ''; }
+  70312: () => { document.getElementById('output').value = ''; }
 };
 
 // Imports from the Wasm binary.
@@ -4374,6 +4374,7 @@ var _KVL = Module['_KVL'] = makeInvalidEarlyAccess('_KVL');
 var _fflush = makeInvalidEarlyAccess('_fflush');
 var _Vs = Module['_Vs'] = makeInvalidEarlyAccess('_Vs');
 var _V_0 = Module['_V_0'] = makeInvalidEarlyAccess('_V_0');
+var _unknown = Module['_unknown'] = makeInvalidEarlyAccess('_unknown');
 var _calculate = Module['_calculate'] = makeInvalidEarlyAccess('_calculate');
 var _main = Module['_main'] = makeInvalidEarlyAccess('_main');
 var _emscripten_stack_get_end = makeInvalidEarlyAccess('_emscripten_stack_get_end');
@@ -4395,6 +4396,7 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['fflush'] != 'undefined', 'missing Wasm export: fflush');
   assert(typeof wasmExports['Vs'] != 'undefined', 'missing Wasm export: Vs');
   assert(typeof wasmExports['V_0'] != 'undefined', 'missing Wasm export: V_0');
+  assert(typeof wasmExports['unknown'] != 'undefined', 'missing Wasm export: unknown');
   assert(typeof wasmExports['calculate'] != 'undefined', 'missing Wasm export: calculate');
   assert(typeof wasmExports['main'] != 'undefined', 'missing Wasm export: main');
   assert(typeof wasmExports['emscripten_stack_get_end'] != 'undefined', 'missing Wasm export: emscripten_stack_get_end');
@@ -4413,6 +4415,7 @@ function assignWasmExports(wasmExports) {
   _fflush = createExportWrapper('fflush', wasmExports['fflush'], 1);
   _Vs = Module['_Vs'] = createExportWrapper('Vs', wasmExports['Vs'], 0);
   _V_0 = Module['_V_0'] = createExportWrapper('V_0', wasmExports['V_0'], 0);
+  _unknown = Module['_unknown'] = createExportWrapper('unknown', wasmExports['unknown'], 0);
   _calculate = Module['_calculate'] = createExportWrapper('calculate', wasmExports['calculate'], 0);
   _main = Module['_main'] = createExportWrapper('main', wasmExports['main'], 2);
   _emscripten_stack_get_end = wasmExports['emscripten_stack_get_end'];
