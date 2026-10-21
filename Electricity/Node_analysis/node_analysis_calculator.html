@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <title>KVL</title>
+    
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            color: #f9f7f7;
+            background-color: #000000;
+        }
+        h2{
+            margin-top: -15px;
+            margin-bottom: 0px;
+        }
+
+        nav ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color:#000000;
+            display: flex;
+        }
+      h1 {
+        text-align: center;
+      }
+
+      /* The C Terminal Styling */
+      #output {
+        width: 100%;
+        max-width: 600px;
+        height: 250px;
+        margin: 20px auto;
+        display: block;
+        background-color: black;
+        color: white; 
+        font-family: 'Lucida Console', Monaco, monospace;
+        font-size: 16px;
+        border: 2px solid #333;
+        padding: 10px;
+        outline: none;
+        border-radius: 5px;
+      }
+
+
+      button{
+        height: 40px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #f6f4f4;
+        color: #000000;
+        border: none;
+        border-radius: 5px;
+      }
+
+
+      button:hover{
+        background-color: #45a049;
+      }
+
+
+      .button-row{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        gap: 30px; 
+        margin-bottom: 15px; 
+      }
+
+      button:disabled {
+        background-color: #555555; /* Dark gray to look "turned off" */
+        color: #888888;            /* Dimmed text */
+        cursor: not-allowed;       /* Changes the mouse pointer to a red circle/slash */
+      }
+
+    </style>
+
+    <script type="text/javascript">
+  // 1. Track the state of your buttons
+  let Vpressed = false;
+  let Rpressed = false;
+  let Ispressed = false;
+
+  // 2. Check if both are true, then reveal
+  function checkCalculateReveal() {
+    if (Vpressed === true && Rpressed === true && Ispressed ===true) {
+      document.getElementById('calc_btn').style.display = 'inline-block';
+    }
+  }
+
+  // 3. Custom functions for your buttons
+  function triggerV() {
+    Module._insertV();      // Run C code
+    Vpressed = true;  // Mark as pressed
+    checkCalculateReveal();  // Check if we should reveal the button
+  }
+
+  function triggerR() {
+    Module._insertR();     // Run C code
+    Rpressed = true; // Mark as pressed
+    checkCalculateReveal();  // Check if we should reveal the button
+  }
+
+  function triggerIs(){
+    Module._insertIs();
+    Ispressed = true;
+    checkCalculateReveal();
+  }
+
+  function addmore(){
+    Vpressed = false;
+    Rpressed = false;
+    document.getElementById('calc_btn').style.display = 'none';
+    document.getElementById('triggerV').disabled = false;
+    document.getElementById('triggerR').disabled = false;
+    
+  
+  }
+
+
+    </script>
+
+  </head>
+  <body>
+
+    <h1>KVL</h1>
+    <div class = "button-row">
+
+    <button onclick="Module._node()">Start</button>
+
+    <button onclick="Module._node()">Reset</button>
+    </div>
+
+
+    <div class = "button-row">
+
+    <button id="triggerR" onclick="triggerR();this.disabled = true;">Insert R</button>
+
+    <button id="triggerV"  onclick="triggerV();this.disabled = true;">Insert V</button>
+
+    <button onclick="triggerIs();this.disabled = true;"> Add I source</button>
+
+    <button onclick="addmore()"> Add more</button>
+
+
+    <button id="calc_btn" style="display: none;" onclick="Module._calculate()">Calculate</button>
+
+    </div>
+    
+    <!-- The Terminal Box -->
+    <textarea id="output" rows="12" readonly></textarea>
+
+    <!-- The bare minimum JavaScript to connect C to the Textarea -->
+    <script type='text/javascript'>
+      var outputElement = document.getElementById('output');
+      if (outputElement) outputElement.value = ''; // clear on reload
+
+      var Module = {
+        print: function(...args) {
+          var text = args.join(' ');
+          if (outputElement) {
+            outputElement.value += text + "\n";
+            outputElement.scrollTop = outputElement.scrollHeight; // Auto-scroll to bottom
+          }
+        }
+      };
+
+    </script>
+
+    <script async type="text/javascript" src="node_analysis.js"></script>
+
+    <li><a style="font-size: 24px;" href="/index.html">Index</a></li>
+    
+  </body>
+</html>
