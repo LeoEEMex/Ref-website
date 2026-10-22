@@ -83,6 +83,12 @@
   let Vpressed = false;
   let Rpressed = false;
   let Ispressed = false;
+  let start = false;
+  let reset = false;
+  let unknown = false;
+  let V_x = false;
+  let R_x = false;
+
 
   // 2. Check if both are true, then reveal
   function checkCalculateReveal() {
@@ -91,7 +97,113 @@
     }
   }
 
+
+  function checkStart(){
+    if (start === true){
+      document.getElementById('reset').style.display = 'inline-block';
+      document.getElementById('unknown').style.display = 'inline-block';
+      document.getElementById('start').style.display = 'none';
+
+    }
+  }
+
+
+  function checkUnknown(){
+    if (unknown === true){
+      document.getElementById('V_x').style.display = 'inline-block';
+      document.getElementById('R_x').style.display = 'inline-block';
+      document.getElementById('unknown').style.display = 'none';
+    }
+  }
+
+  function checkV_x(){
+    if (V_x === true){
+      document.getElementById('triggerR').style.display = 'inline-block';
+      document.getElementById('triggerV').style.display = 'inline-block';
+      document.getElementById('insertR').style.display = 'inline-block';
+      document.getElementById('Isource').style.display = 'inline-block';
+      document.getElementById('more').style.display = 'inline-block';
+
+      document.getElementById('R_x').style.display = 'none';
+      document.getElementById('V_x').style.display = 'none';
+    }
+  }
+
+
+  function checkR_x(){
+    if(R_x === true){
+      document.getElementById('triggerR').style.display = 'inline-block';
+      document.getElementById('triggerV').style.display = 'inline-block';
+      document.getElementById('insertV').style.display = 'inline-block';
+      document.getElementById('Isource').style.display = 'inline-block';
+      document.getElementById('more').style.display = 'inline-block';
+
+      document.getElementById('R_x').style.display = 'none';
+      document.getElementById('V_x').style.display = 'none';
+    }
+  }
+
+  function checkReset(){
+    if(reset === true){
+      document.getElementById('R_x').style.display = 'none';
+      document.getElementById('V_x').style.display = 'none';
+      document.getElementById('triggerR').style.display = 'none';
+      document.getElementById('triggerV').style.display = 'none';
+      document.getElementById('insertV').style.display = 'none';
+      document.getElementById('insertR').style.display = 'none';
+      document.getElementById('Isource').style.display = 'none';
+      document.getElementById('more').style.display = 'none';
+      document.getElementById('calc_btn').style.display = 'none';
+      document.getElementById('unknown').style.display = 'none';
+
+
+      
+
+      document.getElementById('start').style.display = 'inline-block';
+
+    }
+  }
+
   // 3. Custom functions for your buttons
+
+  function triggerStart() {
+    Module._node();      // Run C code
+    start = true;  // Mark as pressed
+    reset = false;
+    checkStart();  // Check if we should reveal the button
+  }
+
+  function triggerReset(){
+    Module._node();
+
+Vpressed = false;
+Rpressed = false;
+Ispressed = false;
+unknown = false;
+V_x = false;
+R_x = false;
+start = false;
+
+
+    reset = true;
+    checkReset();
+  }
+
+  function triggerUnknown(){
+    unknown = true;
+    checkUnknown();
+  }
+
+  function triggerV_x(){
+    V_x = true;
+    checkV_x();
+  }
+
+  function triggerR_x(){
+    R_x = true;
+    checkR_x();
+  }
+
   function triggerV() {
     Module._insertV();      // Run C code
     Vpressed = true;  // Mark as pressed
@@ -129,21 +241,36 @@
     <h1>KVL</h1>
     <div class = "button-row">
 
-    <button onclick="Module._node()">Start</button>
+    <button id="start" onclick="triggerStart();">Start</button>
 
-    <button onclick="Module._node()">Reset</button>
+    <button id="reset" onclick="triggerReset();"style="display: none;" onclick="Module._node()">Reset</button>
     </div>
 
 
     <div class = "button-row">
 
-    <button id="triggerR" onclick="triggerR();this.disabled = true;">Insert R</button>
+    <!--Asking for the unknown -->
+    <button id = "unknown" style="display: none;" onclick="triggerUnknown();">Unknown</button>
 
-    <button id="triggerV"  onclick="triggerV();this.disabled = true;">Insert V</button>
+    <button id = "V_x" style="display: none;" onclick="triggerV_x();">V<sub>x</sub></button>
 
-    <button onclick="triggerIs();this.disabled = true;"> Add I source</button>
+    <button id = "R_x" style="display: none;" onclick="triggerR_x();">R<sub>x</sub></button>
 
-    <button onclick="addmore()"> Add more</button>
+
+
+    <button id="triggerR" style="display: none;" onclick="triggerR();this.disabled = true;">Insert R</button>
+
+    <button id="triggerV"  style="display: none;" onclick="triggerV();this.disabled = true;">Insert V</button>
+
+
+    <button id= "insertR" style="display: none;" onclick="Module._insertRx();this.disabled = true;">Resistance at V<sub>x</sub></button>
+
+    <button id= "insertV" style="display: none;" onclick="Module._insertVx();this.disabled = true;">Resistance at V<sub>x</sub></button>
+ 
+
+    <button id = "Isource" style="display: none;" onclick="triggerIs();this.disabled = true;"> Add I source</button>
+
+    <button id="more" style="display: none;" onclick="addmore()"> Add more</button>
 
 
     <button id="calc_btn" style="display: none;" onclick="Module._calculate()">Calculate</button>
