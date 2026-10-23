@@ -157,9 +157,16 @@
       document.getElementById('unknown').style.display = 'none';
 
 
-      
-
       document.getElementById('start').style.display = 'inline-block';
+
+
+      document.getElementById('triggerV').disabled = false;
+      document.getElementById('triggerR').disabled = false;
+      document.getElementById('Isource').disabled = false;
+      document.getElementById('insertR').disabled = false;
+      document.getElementById('insertV').disabled = false;
+
+
 
     }
   }
@@ -265,7 +272,7 @@ start = false;
 
     <button id= "insertR" style="display: none;" onclick="Module._insertRx();this.disabled = true;">Resistance at V<sub>x</sub></button>
 
-    <button id= "insertV" style="display: none;" onclick="Module._insertVx();this.disabled = true;">Resistance at V<sub>x</sub></button>
+    <button id= "insertV" style="display: none;" onclick="Module._insertVx();this.disabled = true;">Voltage at V<sub>x</sub></button>
  
 
     <button id = "Isource" style="display: none;" onclick="triggerIs();this.disabled = true;"> Add I source</button>

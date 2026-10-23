@@ -109,11 +109,22 @@ void insertRx(){
 
 EMSCRIPTEN_KEEPALIVE
 
+void insertVx(){
+    scanf("%lf", &R_x);
+    printf("Unknown Voltage is: %lf V\n", V_x);
+
+
+    fflush(stdout);
+
+}
+
+EMSCRIPTEN_KEEPALIVE
+
 void calculate(){
 
     I_n = (V_n / R_n);
 
-    if (V_x == 0){
+    
     // I_s = (V_n / R_n) + (V_x / R_x)
     // I_s - (V_n / R_n) = V_x / R_x
     // (I_s - (V_n / R_n)) * R_x = V_x
@@ -121,10 +132,28 @@ void calculate(){
     // V_x = (I_s - I_n) * R_x       <-----Formula to find unknown V.
     V_x = (I_s - I_n) * R_x;
     printf("%lf V\n", V_x);
-    }
+    
 
     fflush(stdout);
 }
+
+EMSCRIPTEN_KEEPALIVE
+
+void calculateR_x (){
+
+    I_n = (V_n / R_n);
+
+    
+    // I_s = (I_n) + (V_x / R_x)
+    // I_s - I_n = (V_x / R_x)
+    // (I_s - I_n)/V_x = 1 / R_x
+    // R_x = V_x / (I_s - I_n)     <-----Formula to find unknown V.
+    V_x = V_x / (I_s - I_n);
+    printf("%lf V\n", V_x);
+    fflush(stdout);
+
+}
+
 
 
 

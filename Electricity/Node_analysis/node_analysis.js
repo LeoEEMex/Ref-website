@@ -4365,7 +4365,7 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp('wasmBinary');
 }
 var ASM_CONSTS = {
-  69560: () => { document.getElementById('output').value = ''; }
+  69592: () => { document.getElementById('output').value = ''; }
 };
 
 // Imports from the Wasm binary.
@@ -4376,7 +4376,9 @@ var _insertIs = Module['_insertIs'] = makeInvalidEarlyAccess('_insertIs');
 var _insertR = Module['_insertR'] = makeInvalidEarlyAccess('_insertR');
 var _insertV = Module['_insertV'] = makeInvalidEarlyAccess('_insertV');
 var _insertRx = Module['_insertRx'] = makeInvalidEarlyAccess('_insertRx');
+var _insertVx = Module['_insertVx'] = makeInvalidEarlyAccess('_insertVx');
 var _calculate = Module['_calculate'] = makeInvalidEarlyAccess('_calculate');
+var _calculateR_x = Module['_calculateR_x'] = makeInvalidEarlyAccess('_calculateR_x');
 var _main = Module['_main'] = makeInvalidEarlyAccess('_main');
 var _emscripten_stack_get_end = makeInvalidEarlyAccess('_emscripten_stack_get_end');
 var _emscripten_stack_get_base = makeInvalidEarlyAccess('_emscripten_stack_get_base');
@@ -4399,7 +4401,9 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['insertR'] != 'undefined', 'missing Wasm export: insertR');
   assert(typeof wasmExports['insertV'] != 'undefined', 'missing Wasm export: insertV');
   assert(typeof wasmExports['insertRx'] != 'undefined', 'missing Wasm export: insertRx');
+  assert(typeof wasmExports['insertVx'] != 'undefined', 'missing Wasm export: insertVx');
   assert(typeof wasmExports['calculate'] != 'undefined', 'missing Wasm export: calculate');
+  assert(typeof wasmExports['calculateR_x'] != 'undefined', 'missing Wasm export: calculateR_x');
   assert(typeof wasmExports['main'] != 'undefined', 'missing Wasm export: main');
   assert(typeof wasmExports['emscripten_stack_get_end'] != 'undefined', 'missing Wasm export: emscripten_stack_get_end');
   assert(typeof wasmExports['emscripten_stack_get_base'] != 'undefined', 'missing Wasm export: emscripten_stack_get_base');
@@ -4419,7 +4423,9 @@ function assignWasmExports(wasmExports) {
   _insertR = Module['_insertR'] = createExportWrapper('insertR', wasmExports['insertR'], 0);
   _insertV = Module['_insertV'] = createExportWrapper('insertV', wasmExports['insertV'], 0);
   _insertRx = Module['_insertRx'] = createExportWrapper('insertRx', wasmExports['insertRx'], 0);
+  _insertVx = Module['_insertVx'] = createExportWrapper('insertVx', wasmExports['insertVx'], 0);
   _calculate = Module['_calculate'] = createExportWrapper('calculate', wasmExports['calculate'], 0);
+  _calculateR_x = Module['_calculateR_x'] = createExportWrapper('calculateR_x', wasmExports['calculateR_x'], 0);
   _main = Module['_main'] = createExportWrapper('main', wasmExports['main'], 2);
   _emscripten_stack_get_end = wasmExports['emscripten_stack_get_end'];
   _emscripten_stack_get_base = wasmExports['emscripten_stack_get_base'];
