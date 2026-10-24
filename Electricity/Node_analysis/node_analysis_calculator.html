@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
-    <title>KVL</title>
+    <title>Node analysis Calculator</title>
     
     <style>
         body{
@@ -88,12 +88,17 @@
   let unknown = false;
   let V_x = false;
   let R_x = false;
-
+  let V_n = false;
+  let R_n = false;
 
   // 2. Check if both are true, then reveal
   function checkCalculateReveal() {
-    if (Vpressed === true && Rpressed === true && Ispressed ===true) {
+    if (Vpressed === true && Rpressed === true && Ispressed ===true && V_x === true) {
       document.getElementById('calc_btn').style.display = 'inline-block';
+    }
+    if (Vpressed === true && Rpressed === true && Ispressed === true && R_x === true){
+      document.getElementById('calcRx').style.display = 'inline-block';
+
     }
   }
 
@@ -122,7 +127,6 @@
       document.getElementById('triggerV').style.display = 'inline-block';
       document.getElementById('insertR').style.display = 'inline-block';
       document.getElementById('Isource').style.display = 'inline-block';
-      document.getElementById('more').style.display = 'inline-block';
 
       document.getElementById('R_x').style.display = 'none';
       document.getElementById('V_x').style.display = 'none';
@@ -136,12 +140,14 @@
       document.getElementById('triggerV').style.display = 'inline-block';
       document.getElementById('insertV').style.display = 'inline-block';
       document.getElementById('Isource').style.display = 'inline-block';
-      document.getElementById('more').style.display = 'inline-block';
 
       document.getElementById('R_x').style.display = 'none';
       document.getElementById('V_x').style.display = 'none';
+
     }
   }
+
+
 
   function checkReset(){
     if(reset === true){
@@ -154,6 +160,7 @@
       document.getElementById('Isource').style.display = 'none';
       document.getElementById('more').style.display = 'none';
       document.getElementById('calc_btn').style.display = 'none';
+      document.getElementById('calcRx').style.display = 'none';
       document.getElementById('unknown').style.display = 'none';
 
 
@@ -168,6 +175,13 @@
 
 
 
+    }
+  }
+
+  function checkAddMore(){
+    if(Vpressed === true && Rpressed === true && Ispressed === true){
+    document.getElementById('more').style.display = 'inline-block';
+    document.getElementById('more').disabled = false;
     }
   }
 
@@ -215,29 +229,47 @@ start = false;
     Module._insertV();      // Run C code
     Vpressed = true;  // Mark as pressed
     checkCalculateReveal();  // Check if we should reveal the button
+    checkAddMore();
+
   }
 
   function triggerR() {
     Module._insertR();     // Run C code
     Rpressed = true; // Mark as pressed
     checkCalculateReveal();  // Check if we should reveal the button
+    checkAddMore();
   }
 
   function triggerIs(){
     Module._insertIs();
     Ispressed = true;
     checkCalculateReveal();
+    checkAddMore();
   }
 
   function addmore(){
     Vpressed = false;
     Rpressed = false;
     document.getElementById('calc_btn').style.display = 'none';
+    document.getElementById('calcRx').style.display = 'none';
     document.getElementById('triggerV').disabled = false;
     document.getElementById('triggerR').disabled = false;
-    
-  
+    Module._addMore();
   }
+
+  function Cal(){
+  
+    if(V_x === true){
+    document.getElementById('calc_btn').disabled = 'true';
+    Module._calculate();
+    } else if(R_x === true){
+    document.getElementById('calcRx').disabled = 'true';
+    Module._calculateR_x();
+    }
+    document.getElementById('more').disabled = 'true';
+  }
+
+
 
 
     </script>
@@ -245,7 +277,7 @@ start = false;
   </head>
   <body>
 
-    <h1>KVL</h1>
+    <h1>Node Analysis Calculator</h1>
     <div class = "button-row">
 
     <button id="start" onclick="triggerStart();">Start</button>
@@ -277,10 +309,12 @@ start = false;
 
     <button id = "Isource" style="display: none;" onclick="triggerIs();this.disabled = true;"> Add I source</button>
 
-    <button id="more" style="display: none;" onclick="addmore()"> Add more</button>
+    <button id="more" style="display: none;" onclick="addmore();this.disabled = true;"> Add more</button>
 
 
-    <button id="calc_btn" style="display: none;" onclick="Module._calculate()">Calculate</button>
+    <button id="calc_btn" style="display: none;" onclick="Cal()">Calculate</button>
+    <button id="calcRx" style="display: none;" onclick="Cal()">Calculate</button>
+
 
     </div>
     

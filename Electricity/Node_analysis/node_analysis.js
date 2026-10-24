@@ -4365,7 +4365,7 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp('wasmBinary');
 }
 var ASM_CONSTS = {
-  69592: () => { document.getElementById('output').value = ''; }
+  70088: () => { document.getElementById('output').value = ''; }
 };
 
 // Imports from the Wasm binary.
@@ -4377,6 +4377,7 @@ var _insertR = Module['_insertR'] = makeInvalidEarlyAccess('_insertR');
 var _insertV = Module['_insertV'] = makeInvalidEarlyAccess('_insertV');
 var _insertRx = Module['_insertRx'] = makeInvalidEarlyAccess('_insertRx');
 var _insertVx = Module['_insertVx'] = makeInvalidEarlyAccess('_insertVx');
+var _addMore = Module['_addMore'] = makeInvalidEarlyAccess('_addMore');
 var _calculate = Module['_calculate'] = makeInvalidEarlyAccess('_calculate');
 var _calculateR_x = Module['_calculateR_x'] = makeInvalidEarlyAccess('_calculateR_x');
 var _main = Module['_main'] = makeInvalidEarlyAccess('_main');
@@ -4402,6 +4403,7 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['insertV'] != 'undefined', 'missing Wasm export: insertV');
   assert(typeof wasmExports['insertRx'] != 'undefined', 'missing Wasm export: insertRx');
   assert(typeof wasmExports['insertVx'] != 'undefined', 'missing Wasm export: insertVx');
+  assert(typeof wasmExports['addMore'] != 'undefined', 'missing Wasm export: addMore');
   assert(typeof wasmExports['calculate'] != 'undefined', 'missing Wasm export: calculate');
   assert(typeof wasmExports['calculateR_x'] != 'undefined', 'missing Wasm export: calculateR_x');
   assert(typeof wasmExports['main'] != 'undefined', 'missing Wasm export: main');
@@ -4424,6 +4426,7 @@ function assignWasmExports(wasmExports) {
   _insertV = Module['_insertV'] = createExportWrapper('insertV', wasmExports['insertV'], 0);
   _insertRx = Module['_insertRx'] = createExportWrapper('insertRx', wasmExports['insertRx'], 0);
   _insertVx = Module['_insertVx'] = createExportWrapper('insertVx', wasmExports['insertVx'], 0);
+  _addMore = Module['_addMore'] = createExportWrapper('addMore', wasmExports['addMore'], 0);
   _calculate = Module['_calculate'] = createExportWrapper('calculate', wasmExports['calculate'], 0);
   _calculateR_x = Module['_calculateR_x'] = createExportWrapper('calculateR_x', wasmExports['calculateR_x'], 0);
   _main = Module['_main'] = createExportWrapper('main', wasmExports['main'], 2);

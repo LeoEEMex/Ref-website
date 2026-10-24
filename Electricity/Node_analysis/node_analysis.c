@@ -17,6 +17,10 @@ double answer;   //Final answer;
 int Rcount;      // Keeps count of how many resistors are used;
 int Vcount;      // Keeps count of how many resistors are used;
 
+double I;
+
+
+
 
 EMSCRIPTEN_KEEPALIVE
 
@@ -48,13 +52,16 @@ answer = 0;
 Rcount = 0;
 Vcount = 0;
 
+I = 0;
+
+
 
 printf("   - Welcome to the Node Analysis Calculator!\n");
-//printf("   - Remember that to find the Voltage at source, you will need to write 0 to calculate for an unknown Voltage from a source and a 1 to find the voltaage at an unkwnon voltage drop.\n");
-//printf("   - To find the Voltage drop at V_n, you don't have to do anything as long as the value of V_source is not 0\n");
-//printf("   - Also, make sure only numbers are entered (no units or SI units).\n");
-//printf("   - To add more voltage drops, just click the button and they will be added.\n");
-//printf("   - Once everything has been fill up, click calculate to get the final answer.\n\n\n");
+printf("   - CLick each button to ublock the new inputs and/or insert the inputs\n");
+printf("   - Also, make sure only numbers are entered (no units or SI units).\n");
+printf("   - To add more voltage drops, just click the button and they will be added.\n");
+printf("   - If you made a mistage click Reset, this will reset the whole calculators (THIS WILL ERASE ALL PREVIOUS INSTERTED VALUES)\n");
+printf("   - Once everything has been fill up, click calculate to get the final answer.\n\n\n");
 
 
 fflush(stdout);
@@ -77,7 +84,7 @@ void insertR(){
 
     scanf("%lf", &R_n);
     Rcount += 1;
-    printf("The Resistance value at R%d is: %lf Ω\n", Rcount, R_n);
+    printf("The Resistance value at R%d is: %lf Ω\n\n", Rcount, R_n);
 
 
     fflush(stdout);
@@ -89,8 +96,8 @@ EMSCRIPTEN_KEEPALIVE
 void insertV(){
 
     scanf("%lf", &V_n);
-    Vcount = Rcount;
-    printf("The Voltage at V%d is: %lf V\n", Vcount, V_n);
+    Vcount += Rcount;
+    printf("The Voltage at V%d is: %lf V\n\n", Vcount, V_n);
 
 
     fflush(stdout);
@@ -100,7 +107,7 @@ EMSCRIPTEN_KEEPALIVE
 
 void insertRx(){
     scanf("%lf", &R_x);
-    printf("Resistance at the unknown Voltage is: %lf\n", R_x);
+    printf("Resistance at the unknown Voltage is: %lf Ω\n\n", R_x);
 
 
     fflush(stdout);
@@ -110,9 +117,29 @@ void insertRx(){
 EMSCRIPTEN_KEEPALIVE
 
 void insertVx(){
-    scanf("%lf", &R_x);
-    printf("Unknown Voltage is: %lf V\n", V_x);
+    scanf("%lf", &V_x);
+    printf("Unknown Voltage is: %lf V\n\n", V_x);
 
+
+    fflush(stdout);
+
+}
+
+EMSCRIPTEN_KEEPALIVE
+
+
+
+EMSCRIPTEN_KEEPALIVE
+
+void addMore(){
+
+    I_n = (V_n / R_n);
+    I = I_n + I;
+    I_n = 0;
+    printf("Current at branch %d is: %lf\n\n\n",Rcount, I);
+
+
+    
 
     fflush(stdout);
 
@@ -122,16 +149,18 @@ EMSCRIPTEN_KEEPALIVE
 
 void calculate(){
 
-    I_n = (V_n / R_n);
+    printf("Current at branch %d is: %lf\n\n\n",Rcount, I);
 
+    I_n = (V_n / R_n);
+    I = I_n + I;
     
     // I_s = (V_n / R_n) + (V_x / R_x)
     // I_s - (V_n / R_n) = V_x / R_x
     // (I_s - (V_n / R_n)) * R_x = V_x
     // V_x = (I_s - (V_n / R_n)) * R_x
     // V_x = (I_s - I_n) * R_x       <-----Formula to find unknown V.
-    V_x = (I_s - I_n) * R_x;
-    printf("%lf V\n", V_x);
+    V_x = ((I_s - I) * R_x);
+    printf("Answer: %lf V\n", V_x);
     
 
     fflush(stdout);
@@ -140,16 +169,19 @@ void calculate(){
 EMSCRIPTEN_KEEPALIVE
 
 void calculateR_x (){
+    printf("Current at branch %d is: %lf\n\n\n",Rcount, I);
+
 
     I_n = (V_n / R_n);
+    I = I_n + I;
 
     
     // I_s = (I_n) + (V_x / R_x)
     // I_s - I_n = (V_x / R_x)
     // (I_s - I_n)/V_x = 1 / R_x
     // R_x = V_x / (I_s - I_n)     <-----Formula to find unknown V.
-    V_x = V_x / (I_s - I_n);
-    printf("%lf V\n", V_x);
+    R_x = V_x / (I_s - I);
+    printf("Answer: %lf Ω\n", R_x);
     fflush(stdout);
 
 }
