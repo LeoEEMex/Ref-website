@@ -24,5 +24,5 @@ Current working formulas and Calculatos:
 5. Resistor Addition in parallele.
 6. KCL.
 7. KVL.
-8. Node analysis (ongoing).
+8. Node analysis with I as source --> Calculator is done, tho it might be improved, the info page is hasnt been updated and it missing the correct info.
  
