@@ -26,3 +26,4 @@ Current working formulas and Calculatos:
 7. KVL.
 8. Node analysis with I as source --> Calculator is done, tho it might be improved, the info page is hasnt been updated and it missing the correct info.
  
+To go to the webcite clcik this link (running using github) --> https://leoeemex.github.io/Ref-website/index.html
