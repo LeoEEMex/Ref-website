@@ -4365,7 +4365,7 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp('wasmBinary');
 }
 var ASM_CONSTS = {
-  70088: () => { document.getElementById('output').value = ''; }
+  70392: () => { document.getElementById('output').value = ''; }
 };
 
 // Imports from the Wasm binary.
@@ -4373,11 +4373,16 @@ var ___original_main = Module['___original_main'] = makeInvalidEarlyAccess('___o
 var _node = Module['_node'] = makeInvalidEarlyAccess('_node');
 var _fflush = makeInvalidEarlyAccess('_fflush');
 var _insertIs = Module['_insertIs'] = makeInvalidEarlyAccess('_insertIs');
+var _insertVs = Module['_insertVs'] = makeInvalidEarlyAccess('_insertVs');
 var _insertR = Module['_insertR'] = makeInvalidEarlyAccess('_insertR');
 var _insertV = Module['_insertV'] = makeInvalidEarlyAccess('_insertV');
+var _insertI = Module['_insertI'] = makeInvalidEarlyAccess('_insertI');
 var _insertRx = Module['_insertRx'] = makeInvalidEarlyAccess('_insertRx');
 var _insertVx = Module['_insertVx'] = makeInvalidEarlyAccess('_insertVx');
+var _insertIx = Module['_insertIx'] = makeInvalidEarlyAccess('_insertIx');
 var _addMore = Module['_addMore'] = makeInvalidEarlyAccess('_addMore');
+var _sourceStatus = Module['_sourceStatus'] = makeInvalidEarlyAccess('_sourceStatus');
+var _VRIstatus = Module['_VRIstatus'] = makeInvalidEarlyAccess('_VRIstatus');
 var _calculate = Module['_calculate'] = makeInvalidEarlyAccess('_calculate');
 var _calculateR_x = Module['_calculateR_x'] = makeInvalidEarlyAccess('_calculateR_x');
 var _main = Module['_main'] = makeInvalidEarlyAccess('_main');
@@ -4399,11 +4404,16 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['node'] != 'undefined', 'missing Wasm export: node');
   assert(typeof wasmExports['fflush'] != 'undefined', 'missing Wasm export: fflush');
   assert(typeof wasmExports['insertIs'] != 'undefined', 'missing Wasm export: insertIs');
+  assert(typeof wasmExports['insertVs'] != 'undefined', 'missing Wasm export: insertVs');
   assert(typeof wasmExports['insertR'] != 'undefined', 'missing Wasm export: insertR');
   assert(typeof wasmExports['insertV'] != 'undefined', 'missing Wasm export: insertV');
+  assert(typeof wasmExports['insertI'] != 'undefined', 'missing Wasm export: insertI');
   assert(typeof wasmExports['insertRx'] != 'undefined', 'missing Wasm export: insertRx');
   assert(typeof wasmExports['insertVx'] != 'undefined', 'missing Wasm export: insertVx');
+  assert(typeof wasmExports['insertIx'] != 'undefined', 'missing Wasm export: insertIx');
   assert(typeof wasmExports['addMore'] != 'undefined', 'missing Wasm export: addMore');
+  assert(typeof wasmExports['sourceStatus'] != 'undefined', 'missing Wasm export: sourceStatus');
+  assert(typeof wasmExports['VRIstatus'] != 'undefined', 'missing Wasm export: VRIstatus');
   assert(typeof wasmExports['calculate'] != 'undefined', 'missing Wasm export: calculate');
   assert(typeof wasmExports['calculateR_x'] != 'undefined', 'missing Wasm export: calculateR_x');
   assert(typeof wasmExports['main'] != 'undefined', 'missing Wasm export: main');
@@ -4422,11 +4432,16 @@ function assignWasmExports(wasmExports) {
   _node = Module['_node'] = createExportWrapper('node', wasmExports['node'], 0);
   _fflush = createExportWrapper('fflush', wasmExports['fflush'], 1);
   _insertIs = Module['_insertIs'] = createExportWrapper('insertIs', wasmExports['insertIs'], 0);
+  _insertVs = Module['_insertVs'] = createExportWrapper('insertVs', wasmExports['insertVs'], 0);
   _insertR = Module['_insertR'] = createExportWrapper('insertR', wasmExports['insertR'], 0);
   _insertV = Module['_insertV'] = createExportWrapper('insertV', wasmExports['insertV'], 0);
+  _insertI = Module['_insertI'] = createExportWrapper('insertI', wasmExports['insertI'], 0);
   _insertRx = Module['_insertRx'] = createExportWrapper('insertRx', wasmExports['insertRx'], 0);
   _insertVx = Module['_insertVx'] = createExportWrapper('insertVx', wasmExports['insertVx'], 0);
+  _insertIx = Module['_insertIx'] = createExportWrapper('insertIx', wasmExports['insertIx'], 0);
   _addMore = Module['_addMore'] = createExportWrapper('addMore', wasmExports['addMore'], 0);
+  _sourceStatus = Module['_sourceStatus'] = createExportWrapper('sourceStatus', wasmExports['sourceStatus'], 1);
+  _VRIstatus = Module['_VRIstatus'] = createExportWrapper('VRIstatus', wasmExports['VRIstatus'], 3);
   _calculate = Module['_calculate'] = createExportWrapper('calculate', wasmExports['calculate'], 0);
   _calculateR_x = Module['_calculateR_x'] = createExportWrapper('calculateR_x', wasmExports['calculateR_x'], 0);
   _main = Module['_main'] = createExportWrapper('main', wasmExports['main'], 2);
