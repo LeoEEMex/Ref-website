@@ -109,7 +109,7 @@
     if ((Vpressed + Rpressed + Ipressed >= 2) && (Ispressed === true || Vspressed === true) && R_x === true){
       document.getElementById('calcRx').style.display = 'inline-block';
     }
-    if((V_s === true && triggerI_x === true)){
+    if((V_s === true && I_x === true)){
       document.getElementById('calcRx').style.display = 'inline-block';
 
     }
@@ -181,19 +181,15 @@
       document.getElementById('triggerV').style.display = 'none';
       document.getElementById('triggerR').style.display = 'none';
       document.getElementById('triggerI').style.display = 'none';
+      document.getElementById('Vsource').style.display = 'inline-block';
 
 
 
       } else if (I_s === true){
       document.getElementById('insertV').style.display = 'inline-block';
-      }
-
-      if(V_s == true){
-      document.getElementById('Vsource').style.display = 'inline-block';
-      } else if (I_s === true){
       document.getElementById('Isource').style.display = 'inline-block';
-      }
 
+      }
       document.getElementById('R_x').style.display = 'none';
       document.getElementById('V_x').style.display = 'none';
       Module._sourceStatus(Number(V_s));
@@ -318,9 +314,9 @@ start = false;
     checkR_x();
   }
 
-  function triggerI_x(){
+  function insertI_x(){
     I_x = true;
-    Module._insertI_x();
+    Module._insertIx();
     checkCalculateReveal();
   }
 
@@ -445,7 +441,7 @@ start = false;
 
     <button id= "insertV" style="display: none;" onclick="Module._insertVx();this.disabled = true;">Voltage at R<sub>x</sub></button>
 
-    <button id= "insertI" style="display: none;" onclick="Module._insertVx();this.disabled = true;">Current at R<sub>x</sub></button>
+    <button id= "insertI" style="display: none;" onclick= "insertI_x();this.disabled = true;">Current at R<sub>x</sub></button>
 
  
 

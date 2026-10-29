@@ -203,9 +203,11 @@ if(Vstat == 1 && Rstat == 1){
 }else if(Vstat == 1 && Istat == 1){
     V = V_n + V;
 }
+if (I_x == 0){
     printf("Voltage at branch %d is: %lfA\n\n\n",Vcount, V_n);
     printf("New Total Voltage is: %lfV\n", V);
     V_n = 0;
+}
 }
 
     
