@@ -24,6 +24,6 @@ Current working formulas and Calculatos:
 5. Resistor Addition in parallele.
 6. KCL.
 7. KVL.
-8. Node analysis with I as source --> Calculator is done, tho it might be improved, the info page is hasnt been updated and it missing the correct info.
+8. Node analysis with I as source --> Calculator is done, tho it might be improved, the info page is hasnt been updated and it shows the correct info, it will be corrected once the calculator is done :)
  
 To go to the webcite clcik this link (running using github) --> https://leoeemex.github.io/Ref-website/index.html
